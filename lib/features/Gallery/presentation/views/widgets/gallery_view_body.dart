@@ -131,7 +131,7 @@ class _GalleryViewBodyState extends State<GalleryViewBody> {
                                         File? cameraImage = await pickImageFromCamera();
                                         if(cameraImage != null){
                                           Navigator.pop(context);
-                                          UploadImageCubit.get(context).uploadImage(imageFile: cameraImage);
+                                          await UploadImageCubit.get(context).uploadImage(imageFile: cameraImage);
                                           await _getMyGalleryCubit.getMyGallery();
                                         }
                                       },
