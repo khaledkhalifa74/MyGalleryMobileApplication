@@ -55,7 +55,7 @@ class CustomTextFormField extends StatelessWidget {
         decoration: InputDecoration(
           hintText: placeholder,
           hintStyle: Styles.textStyle16.copyWith(
-            color: kTextFieldColor,
+            color: kHintTextColor,
           ),
           focusedBorder: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(22)),
@@ -75,7 +75,8 @@ class CustomTextFormField extends StatelessWidget {
           errorBorder: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(22)),
               borderSide: BorderSide.none,),
-          fillColor: kWhiteColor,
+          fillColor: kTextFieldColor,
+          filled: true,
           contentPadding:
           const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
         ),

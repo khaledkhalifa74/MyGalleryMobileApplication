@@ -57,7 +57,11 @@ abstract class Styles {
     fontWeight: FontWeight.w700,
     color: kBlackColor,
   );
-
+  static TextStyle textStyle30 = TextStyle(
+    fontSize: 30.spMin,
+    fontWeight: FontWeight.w700,
+    color: kTextColor,
+  );
   static TextStyle textStyle32 = TextStyle(
     fontSize: 32.spMin,
     fontWeight: FontWeight.w700,

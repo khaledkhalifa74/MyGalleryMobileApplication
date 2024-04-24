@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:my_gallery/core/utils/assets.dart';
+import 'package:my_gallery/core/utils/styles.dart';
 import 'package:my_gallery/core/widgets/custom_loading_indicator.dart';
 import 'package:my_gallery/features/Authentication/presentation/views/widgets/custom_button.dart';
 import 'package:my_gallery/features/Authentication/presentation/views/widgets/custom_text_field_with_title.dart';
@@ -17,11 +18,11 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   FToast fToast = FToast();
   bool isLoading = false;
   final _loginFormKey = GlobalKey<FormState>();
-  TextEditingController emailController = TextEditingController();
+  TextEditingController userNameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   @override
   void dispose() {
-    emailController.dispose();
+    userNameController.dispose();
     passwordController.dispose();
     super.dispose();
   }
@@ -49,7 +50,18 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height *.25,
+                  ),
+                  Text(
+                    'Log in',
+                    style: Styles.textStyle30,
+                  ),
+                  const SizedBox(
+                    height: 32,
+                  ),
                   CustomTextFormField(
+                    width: MediaQuery.of(context).size.width * 0.75,
                     validator: (data){
                       if (data!.isEmpty) {
                         return 'Please enter your email';
@@ -59,7 +71,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                       }
                       return null;
                     },
-                    controller: emailController,
+                    controller: userNameController,
                     placeholder: 'User Name',
                     inputType: TextInputType.emailAddress,
                   ),
@@ -67,16 +79,18 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     height: 24,
                   ),
                   CustomTextFormField(
+                    width: MediaQuery.of(context).size.width * 0.75,
                     obscureText: true,
                     controller: passwordController,
                     placeholder: 'Password',
                     validateMessage: 'Please enter your password',
                   ),
                   const SizedBox(
-                    height: 52,
+                    height: 32,
                   ),
                   isLoading ? const Center(child: CustomLoadingIndicator())
                       : CustomButton(
+                      width: MediaQuery.of(context).size.width * 0.75,
                         text: 'Submit',
                         itemCallBack: ()async {
                           if (_loginFormKey.currentState!.validate()) {
