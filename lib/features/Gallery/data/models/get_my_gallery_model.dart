@@ -23,13 +23,13 @@
 // }
 //
 // class Data {
-//   List<Null>? images;
+//   List<String>? images;
 //
 //   Data({this.images});
 //
 //   Data.fromJson(Map<String, dynamic> json) {
 //     if (json['images'] != null) {
-//       images = <Null>[];
+//       images = <String>[];
 //       json['images'].forEach((v) {
 //         images!.add(Null.fromJson(v));
 //       });
@@ -39,7 +39,7 @@
 //   Map<String, dynamic> toJson() {
 //     final Map<String, dynamic> data = <String, dynamic>{};
 //     if (images != null) {
-//       data['images'] = images!.map((v) => v!.toJson()).toList();
+//       data['images'] = images!.map((v) => v.toJson()).toList();
 //     }
 //     return data;
 //   }

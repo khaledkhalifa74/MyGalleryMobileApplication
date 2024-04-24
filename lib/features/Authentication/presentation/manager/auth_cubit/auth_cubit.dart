@@ -23,29 +23,15 @@ class AuthCubit extends Cubit<AuthState>{
       );
       if (response.statusCode == 200) {
         LoginModel loginModel = LoginModel.fromJson(response.data);
-        globals.token = loginModel.token ?? '';
-        globals.userData = loginModel.user;
-        // CasheHelper.saveData(key: 'login', value: true); //save user
-        emit(LoginSuccess(loginModel));
+        if(loginModel.token == null){
+          emit(LoginFailure(errorMessage: 'Invalid Credentials'));
+        }else{
+          globals.token = loginModel.token ?? '';
+          globals.userData = loginModel.user;
+          // CasheHelper.saveData(key: 'login', value: true); //save user
+          emit(LoginSuccess(loginModel));
+        }
       }
-      // if (response.statusCode == 302) {
-      //   // Get the redirection URL from the response headers
-      //   final redirectionUrl = response.headers.map['location']?.first;
-      //   if(redirectionUrl != null){
-      //     final redirectedResponse = await dio.get(redirectionUrl);
-      //     if(redirectedResponse.statusCode == 200){
-      //       LoginModel loginModel = LoginModel.fromJson(response.data);
-      //       globals.token = loginModel.token ?? '';
-      //       // CasheHelper.saveData(key: 'login', value: true); //save user
-      //       emit(LoginSuccess(loginModel));
-      //     }
-      //   }
-      // } else if (response.statusCode == 200) {
-      //   LoginModel loginModel = LoginModel.fromJson(response.data);
-      //   globals.token = loginModel.token ?? '';
-      //   // CasheHelper.saveData(key: 'login', value: true); //save user
-      //   emit(LoginSuccess(loginModel));
-      // }
     }
     on Exception catch (e) {
       emit(LoginFailure(errorMessage: e.toString()));
