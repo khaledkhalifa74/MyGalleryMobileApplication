@@ -7,6 +7,7 @@ import 'package:my_gallery/core/utils/cashe_helper.dart';
 import 'package:my_gallery/core/utils/colors.dart';
 import 'package:my_gallery/features/Authentication/presentation/manager/auth_cubit/auth_cubit.dart';
 import 'package:my_gallery/features/Authentication/presentation/views/login_view.dart';
+import 'package:my_gallery/features/Gallery/presentation/manager/get_my_gallery_cubit/get_my_gallery_cubit.dart';
 import 'package:my_gallery/features/Gallery/presentation/manager/upload_image_cubit/upload_image_cubit.dart';
 import 'package:my_gallery/features/Gallery/presentation/views/gallery_view.dart';
 import 'package:my_gallery/simple_bloc_observer.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
             providers: [
               BlocProvider(create: (context) => AuthCubit()),
               BlocProvider(create: (context) => UploadImageCubit()),
+              BlocProvider(create: (context) => GetMyGalleryCubit()),
             ],
             child: MaterialApp(
                 debugShowCheckedModeBanner: false,

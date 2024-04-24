@@ -77,10 +77,10 @@ Future<dynamic> customLogOutDialog(BuildContext context) {
   );
 }
 
-Future<dynamic> customUploadDialog(BuildContext context ,{void Function()? onGalleryPressed, void Function()? onCameraPressed,}) {
+Future<dynamic> customUploadDialog(BuildContext context ,{void Function()? onGalleryPressed, void Function()? onCameraPressed}){
   return showDialog(
     context: context,
-    builder: (context) => AlertDialog(
+    builder: (_) => AlertDialog(
       shape: RoundedRectangleBorder(
         side: const BorderSide(
           color: kWhiteColor,
