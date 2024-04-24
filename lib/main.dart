@@ -9,8 +9,6 @@ import 'package:my_gallery/features/Authentication/presentation/manager/auth_cub
 import 'package:my_gallery/features/Authentication/presentation/views/login_view.dart';
 import 'package:my_gallery/features/Gallery/presentation/views/gallery_view.dart';
 import 'package:my_gallery/simple_bloc_observer.dart';
-import 'package:my_gallery/core/utils/globals.dart' as globals;
-
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
